@@ -2,7 +2,7 @@ class Recommendation:
     def __init__(self, job, job_seeker):
         self.job = job
         self.job_seeker = job_seeker
-        
+
     @property
     def matching_skill_count(self):
         job_seeker_skills = set(self.job_seeker.skills)

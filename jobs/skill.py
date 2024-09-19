@@ -12,7 +12,7 @@ class Skill:
         if key not in cls._instances:
             cls._instances[key] = super(Skill, cls).__new__(cls)
         return cls._instances[key]
-    
+
     @classmethod
     def parse(cls, skills: str) -> list:
         """Parse a string of skills and return a list of Skill instances"""
