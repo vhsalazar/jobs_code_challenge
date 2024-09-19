@@ -25,3 +25,13 @@ Job recommendation engine that matches jobseekers to jobs based on their skills.
 
     python cli.py <jobs.csv> <jobseekers.csv> > output.csv
 
+
+
+## Tests
+ 
+
+    python -m unittest discover tests/
+
+
+
+
