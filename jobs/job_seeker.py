@@ -7,7 +7,7 @@ class JobSeeker:
     def __init__(self, id: int, name: str, skills: List[Skill]):
         self.id = id
         self.name = name
-        self.skills = skills
+        self.skills = set(skills)
 
     def __repr__(self) -> str:
         return self.name

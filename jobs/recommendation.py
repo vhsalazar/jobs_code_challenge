@@ -6,7 +6,7 @@ class Recommendation:
     @property
     def matching_skill_count(self):
         job_seeker_skills = set(self.job_seeker.skills)
-        return len(set(self.job.required_skills).intersection(job_seeker_skills))
+        return len(self.job.required_skills.intersection(job_seeker_skills))
 
     @property
     def matching_skill_percent(self):
