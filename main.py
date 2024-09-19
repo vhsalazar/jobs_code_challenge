@@ -1,7 +1,7 @@
 import sys
 
 from jobs import *
-from jobs.csv_utils import read_csv
+from jobs.utils import read_csv
 
 class CLI:
     HEADERS = ['job_seeker_id', 'job_seeker_name', 'job_id',

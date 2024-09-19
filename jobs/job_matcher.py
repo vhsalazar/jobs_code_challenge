@@ -1,6 +1,5 @@
 
 from typing import List
-from .csv_utils import read_csv
 from collections import defaultdict
 
 from .skill import Skill
