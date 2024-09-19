@@ -10,7 +10,12 @@ class Recommendation:
 
     @property
     def matching_skill_percent(self):
+        if len(self.job.required_skills) == 0:
+            return 0 # avoid division by zero
         return int(self.matching_skill_count / len(self.job.required_skills) * 100)
 
     def __str__(self) -> str:
         return ', '.join(map(str, [self.job_seeker.id, self.job_seeker.name, self.job.id, self.job.title, self.matching_skill_count, self.matching_skill_percent]))
+    
+    def __repr__(self) -> str:
+        return "{" + self.__str__() + "}"
