@@ -31,6 +31,8 @@ class CLI:
 
         job_matcher = JobMatcher(job_seekers, jobs)
 
+        # A new class could handle the output of the recomendations
+        # however, for this simple case, we can just print the output        
         print(','.join(CLI.HEADERS))
 
         for recommendation in job_matcher.recommendations:
