@@ -14,7 +14,7 @@ class TestRecommendation(unittest.TestCase):
         self.assertEqual(self.recommendation.matching_skill_percent, 66)
 
     def test_str(self):
-        expected_str = "1, Alice, 1, Software Engineer, 2, 66"
+        expected_str = "1,Alice,1,Software Engineer,2,66"
         self.assertEqual(str(self.recommendation), expected_str)
 
     def test_no_matching_skills(self):
