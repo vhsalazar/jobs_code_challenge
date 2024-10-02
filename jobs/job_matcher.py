@@ -42,4 +42,4 @@ class JobMatcher:
 
             for job in jobs:
                 result.append(Recommendation(job, job_seeker))
-        return sorted(result, key=lambda r: (r.job_seeker.id, -r.matching_skill_percent, r.job.id))
+        return sorted(result, key=self.sort_by)
