@@ -16,4 +16,4 @@ class Skill:
     @classmethod
     def parse(cls, skills: str) -> list:
         """Parse a string of skills and return a list of Skill instances"""
-        return {Skill(name) for name in skills.split(', ')}
+        return [Skill(name) for name in skills.split(', ')]
