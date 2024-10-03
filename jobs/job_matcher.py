@@ -9,14 +9,25 @@ from .recommendation import Recommendation
 
 
 class JobMatcher:
-    def __init__(self, job_seekers: List[JobSeeker], jobs: List[Job]):
+    """JobMatcher class to match job seekers with jobs based on their skills
+
+    @param job_seekers: List of JobSeeker instances
+    @param jobs: List of Job instances
+    @param sort_by: Optional sort function to sort the recommendations
+    """
+
+    def __init__(self, job_seekers: List[JobSeeker], jobs: List[Job], sort_by=None):
         self.job_seekers = job_seekers
         self.jobs = jobs
         self.skill_jobs = defaultdict(list)
+        self.sort_by = sort_by or self.__default_sort_by
 
         for job in jobs:
             for skill in job.required_skills:
                 self.skill_jobs[skill].append(job)
+
+    def __default_sort_by(self, recommendation: Recommendation) -> tuple:
+        return (recommendation.job_seeker.id, -recommendation.matching_skill_percent, recommendation.job.id)
 
     @property
     def recommendations(self) -> list:
@@ -31,4 +42,4 @@ class JobMatcher:
 
             for job in jobs:
                 result.append(Recommendation(job, job_seeker))
-        return sorted(result, key=lambda r: (r.job_seeker.id, -r.matching_skill_percent, r.job.id))
+        return sorted(result, key=self.sort_by)
